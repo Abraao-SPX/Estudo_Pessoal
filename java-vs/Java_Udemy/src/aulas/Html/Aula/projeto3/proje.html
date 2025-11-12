@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Final</title>
+
+    <style>
+        
+        /* Seletor para estilizar todos os botões da página */
+        input[type="button"] {
+            /* Estilos solicitados: fundo azul, texto branco, borda arredondada */
+            background-color: lightskyblue;
+            color: rgb(0, 0, 0);
+            border-radius: 8px;
+            }
+
+    </style>
+
+    <script>
+        window.onload = function () {
+            // Pega a referência de cada botão pelo seu ID
+            let bot_potencia = document.getElementById("potencia");
+            let bot_arredondar = document.getElementById("arredondar");
+            let bot_raiz = document.getElementById("raiz");
+            let bot_media = document.getElementById("media"); // Botão da média
+
+            // Adiciona a funcionalidade para o botão de potência
+            bot_potencia.onclick = function () {
+                let n1 = Number(prompt("Digite o número a ser elevado:"));
+                let n2 = Number(prompt("Digite a potência para esse número:"));
+                document.getElementById("resposta").value = Math.pow(n1, n2);
+            };
+
+            // Adiciona a funcionalidade para o botão de arredondar
+            bot_arredondar.onclick = function () {
+                let n1 = Number(prompt("Digite o número a ser arredondado:"));
+                document.getElementById("resposta").value = Math.round(n1);
+            };
+
+            // Adiciona a funcionalidade para o botão de raiz quadrada
+            bot_raiz.onclick = function () {
+                let n1 = Number(prompt("Digite o número para descobrir a raiz quadrada:"));
+                document.getElementById("resposta").value = Math.sqrt(n1);
+            };
+
+            // Adiciona a funcionalidade para o botão de média
+            bot_media.onclick = function () {
+                let n1 = Number(prompt("Digite o primeiro número:"));
+                let n2 = Number(prompt("Digite o segundo número:"));
+                let media = (n1 + n2) / 2;
+                document.getElementById("resposta").value = media;
+            };
+        };
+    </script>
+</head>
+<body>
+
+    <h1>Calculadora de Funções</h1>
+
+    <input type="button" id="potencia" name="potencia" value="Elevar à Potência">
+    <input type="button" id="arredondar" name="arredondar" value="Arredondar">
+    <input type="button" id="raiz" name="raiz" value="Raiz Quadrada">
+    <input type="button" id="media" name="media" value="Calcular Média">
+
+    <br><br>
+
+    <label for="resposta">Resultado:</label>
+    <input type="text" id="resposta" name="resposta" disabled>
+
+</body>
+</html>

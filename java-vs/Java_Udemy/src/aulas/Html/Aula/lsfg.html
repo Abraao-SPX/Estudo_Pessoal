@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Atividade da Aula: Boas-Vindas</title>
+    <style>
+      /* Estilo básico para a página */
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      h1 {
+        color: #333;
+      }
+      p {
+        font-size: 1.2em;
+      }
+      strong {
+        color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Atividade da Aula</h2>
+
+    <script>
+      // 1. Solicitar o nome da pessoa (como na atividade 5)
+      const nome = prompt("Qual é o seu nome?");
+
+      // 2. Obter a data e hora atuais (como no desafio 6)
+      const agora = new Date();
+
+      // 3. Formatar a data (Dia, Mês, Ano)
+      const dia = String(agora.getDate()).padStart(2, '0');
+      const mes = String(agora.getMonth() + 1).padStart(2, '0'); // Adiciona +1, pois os meses começam em 0
+      const ano = agora.getFullYear();
+      const dataFormatada = dia + "/" + mes + "/" + ano;
+
+      // 4. Formatar a hora (Hora, Minutos)
+      const h = String(agora.getHours()).padStart(2, '0');
+      const m = String(agora.getMinutes()).padStart(2, '0');
+      const horaFormatada = h + ":" + m;
+
+      // 5. Exibir a mensagem de boas-vindas com nome, data e hora
+      document.write("<h1>Olá, " + nome + "!</h1>");
+      document.write("<p>Seja muito bem-vindo(a) hoje, " + dataFormatada + ".</p>");
+      document.write("<p>A hora atual é: <strong>" + horaFormatada + "</strong></p>");
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,25 @@
+body{
+    background-color: rgba(86, 57, 57, 0.093);}
+
+.jorge{
+    color: rgb(7, 44, 249);
+    margin-top: 90px 50px 20px 50px;
+    margin-bottom: auto;
+    border-radius: 10px;
+}
+b{
+    color: rgb(237, 2, 2);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+i{
+    color: green;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+u{
+    color: purple;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+    color: green;
+
+}

@@ -1,0 +1,106 @@
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    
+    color: #1d2129;
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.modelo1 {
+    background-color: #884513;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 600px; 
+    box-sizing: border-box;
+}
+
+.linha {
+    border-bottom: 3px solid;
+    color: black;
+    margin-bottom: 20px;
+} 
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.titulo2 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+form > div {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 20px; 
+}
+
+
+.rotulos {
+    width: 120px; 
+    font-weight: 600;
+    color: #ffffff;
+    text-align: right; 
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+
+.entrada {
+    flex: 1; 
+    padding: 12px 15px;
+    border: 2px solid #000000;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #000000;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: rgb(231, 191, 140);
+}
+
+
+.entrada:focus {
+    outline: none;
+    border-color: #000000; 
+    box-shadow: 0 0 0 3px rgba(194, 168, 168, 0.2);
+}
+
+textarea.entrada {
+    min-height: 120px;
+    resize: vertical; 
+    font-family: inherit; 
+}
+
+
+.botao {
+    background-color: #000000; 
+    color: rgb(255, 255, 255);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.botao:hover {
+    background-color: #000000;
+} 
+
+.botao:active {
+    transform: scale(0.98); 
+}
