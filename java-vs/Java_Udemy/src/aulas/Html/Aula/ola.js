@@ -1,12 +1,9 @@
-import React from "react";
+const meuFormulario = document.getElementById('form-contato');
 
-function Ola() {
-    return (
-        <div>
-            <h1>Olá, mundo!</h1>
-            <p>Bem-vindo à sua primeira aula de React.</p>
-        </div>
-    );
-}
-
-export default Ola;
+meuFormulario.addEventListener('submit', (evento) => {
+  // A linha mais importante: impede o recarregamento da página
+  evento.preventDefault(); 
+  
+  console.log('Formulário interceptado! Validando dados...');
+  // Aqui você faria a validação e o envio com fetch()
+});

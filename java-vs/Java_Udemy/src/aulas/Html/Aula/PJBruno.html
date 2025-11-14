@@ -36,11 +36,11 @@
     if(!run) return;
 
     run.addEventListener('click', function(){
-      // Alternar fundo
+      
       const toggle = document.getElementById('toggle-bg');
       if(toggle) toggle.click();
 
-      // Aplicar efeito ao parágrafo
+   
       const p = document.getElementById('p-hover');
       if(p){
         const prev = p.style.color || '';
@@ -48,20 +48,16 @@
         setTimeout(()=> p.style.color = prev, 700);
       }
 
-      // Atualizar saída de tecla
       const outKeys = document.getElementById('out-keys');
       if(outKeys) outKeys.textContent = 'Tecla: Enter';
-
-      // Preencher input
+      
       const inp = document.getElementById('inp-keys');
       if(inp) inp.value = 'exemplo';
 
-      // Selecionar opção B
       const sel = document.getElementById('sel-x');
       const outSel = document.getElementById('out-sel');
       if(sel){ sel.value = 'B'; if(outSel) outSel.textContent = 'Escolhido: B'; }
 
-      // Mostrar/video: se existir um iframe com data-src, atribuir src e mostrar
       const container = document.getElementById('video-container');
       const iframe = document.getElementById('video-iframe');
       if(iframe && iframe.dataset && iframe.dataset.src){
