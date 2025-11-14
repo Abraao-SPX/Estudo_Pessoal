@@ -1,0 +1,73 @@
+<div class="card">
+  <div style="display:flex;gap:12px;align-items:center;margin-bottom:8px">
+    <button id="run-all" class="btn">Executar tudo</button>
+    <div class="title">🧪 Atividade</div>
+  </div>
+
+  <div class="grid">
+    <button id="toggle-bg" class="btn" onclick="document.body.style.background = document.body.style.background ? '' : 'cyan'">
+      Alternar Fundo
+    </button>
+
+    <p id="p-hover" onmouseover="this.style.color='red'" onmouseout="this.style.color='black'">
+      Passe o mouse aqui para mudar a cor do texto.
+    </p>
+
+        <input id="inp-keys" type="text" placeholder="Digite algo..."
+          onkeydown="document.getElementById('out-keys').textContent = 'Tecla: ' + (event.key || '-')">
+    <div id="out-keys" class="out">Tecla: —</div>
+
+    <p/>
+
+    <select id="sel-x" onchange="document.getElementById('out-sel').textContent = 'Escolhido: ' + this.value">
+      <option value="">Escolha uma opção</option>
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+    </select>
+    <div id="out-sel" class="out">Escolhido: —</div>
+
+  </div>
+</div>
+
+<script>
+  (function(){
+    const run = document.getElementById('run-all');
+    if(!run) return;
+
+    run.addEventListener('click', function(){
+      // Alternar fundo
+      const toggle = document.getElementById('toggle-bg');
+      if(toggle) toggle.click();
+
+      // Aplicar efeito ao parágrafo
+      const p = document.getElementById('p-hover');
+      if(p){
+        const prev = p.style.color || '';
+        p.style.color = 'red';
+        setTimeout(()=> p.style.color = prev, 700);
+      }
+
+      // Atualizar saída de tecla
+      const outKeys = document.getElementById('out-keys');
+      if(outKeys) outKeys.textContent = 'Tecla: Enter';
+
+      // Preencher input
+      const inp = document.getElementById('inp-keys');
+      if(inp) inp.value = 'exemplo';
+
+      // Selecionar opção B
+      const sel = document.getElementById('sel-x');
+      const outSel = document.getElementById('out-sel');
+      if(sel){ sel.value = 'B'; if(outSel) outSel.textContent = 'Escolhido: B'; }
+
+      // Mostrar/video: se existir um iframe com data-src, atribuir src e mostrar
+      const container = document.getElementById('video-container');
+      const iframe = document.getElementById('video-iframe');
+      if(iframe && iframe.dataset && iframe.dataset.src){
+        if(!iframe.src) iframe.src = iframe.dataset.src + (iframe.dataset.src.indexOf('?')===-1 ? '?' : '&') + 'autoplay=1&mute=1';
+        if(container) container.style.display = 'flex';
+      }
+    });
+  })();
+</script>
