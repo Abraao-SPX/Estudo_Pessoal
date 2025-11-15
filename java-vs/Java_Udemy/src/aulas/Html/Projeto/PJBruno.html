@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashboard eFront - Sistema de gerenciamento de vendas e transações">
+  <meta name="author" content="Bruno">
+  <title>Dashboard eFront | Painel de Vendas</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="PJBruno.css">
+</head>
+<body>
+  <!-- Main Container -->
+  <div class="dashboard" role="application" aria-label="Dashboard de vendas eFront">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" role="navigation" aria-label="Menu de navegação">
+      <!-- Logo -->
+      <div class="sidebar__header">
+        <div class="sidebar__logo">
+          <span class="sidebar__logo-primary">e</span><span class="sidebar__logo-text">Front</span>
+        </div>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav class="sidebar__nav">
+        <!-- Primary Menu -->
+        <ul class="menu" role="menubar">
+          <li class="menu__item menu__item--active" role="none">
+            <a href="#dashboard" class="menu__link menu__link--active" role="menuitem" aria-current="page">
+              <svg class="menu__icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                <desc>Ícone Dashboard</desc>
+                <circle cx="7" cy="7" r="2"/>
+                <circle cx="17" cy="7" r="2"/>
+                <circle cx="7" cy="17" r="2"/>
+                <circle cx="17" cy="17" r="2"/>
+              </svg>
+              <span class="menu__text">Dashboard</span>
+            </a>
+          </li>
+          <li class="menu__item" role="none">
+            <a href="#wallet" class="menu__link" role="menuitem">
+              <svg class="menu__icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                <desc>Ícone Carteira</desc>
+                <rect x="3" y="4" width="18" height="16" rx="2"/>
+              </svg>
+              <span class="menu__text">Carteira</span>
+            </a>
+          </li>
+          <li class="menu__item" role="none">
+            <a href="#transactions" class="menu__link" role="menuitem">
+              <svg class="menu__icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                <desc>Ícone Transações</desc>
+                <rect x="1" y="1" width="22" height="15" rx="1"/>
+                <circle cx="8" cy="20" r="2"/>
+                <circle cx="19" cy="20" r="2"/>
+              </svg>
+              <span class="menu__text">Transações</span>
+            </a>
+          </li>
+          <li class="menu__item" role="none">
+            <a href="#support" class="menu__link" role="menuitem">
+              <svg class="menu__icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                <desc>Ícone Suporte</desc>
+                <circle cx="12" cy="8" r="2"/>
+                <path d="M5 15h14"/>
+              </svg>
+              <span class="menu__text">Suporte</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Divider -->
+        <hr class="menu__divider">
+
+        <!-- Secondary Menu -->
+        <ul class="menu" role="menubar">
+          <li class="menu__item" role="none">
+            <a href="#settings" class="menu__link" role="menuitem">
+              <svg class="menu__icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                <desc>Ícone Ajustes</desc>
+                <circle cx="12" cy="12" r="3"/>
+                <circle cx="12" cy="3" r="2"/>
+              </svg>
+              <span class="menu__text">Ajustes</span>
+            </a>
+          </li>
+          <li class="menu__item menu__item--danger" role="none">
+            <a href="#logout" class="menu__link menu__link--danger" role="menuitem">
+              <svg class="menu__icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                <desc>Ícone Desconectar</desc>
+                <path d="M3 6h12M18 6h2M9 12h6M15 12h2M6 18h9M18 18h2"/>
+              </svg>
+              <span class="menu__text">Desconectar</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main" role="main">
+      <!-- Header with User Info -->
+      <header class="header">
+        <div class="header__greeting">
+          <h1 class="header__title">Olá, Iuri</h1>
+          <p class="header__subtitle">Aqui estão as informações sobre suas vendas.</p>
+        </div>
+
+        <div class="header__actions">
+          <!-- Search Icon -->
+          <button class="icon-button" aria-label="Pesquisar">
+            <svg class="icon-button__icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+              <desc>Ícone de busca</desc>
+              <circle cx="10" cy="10" r="6"/>
+              <line x1="14" y1="14" x2="20" y2="20"/>
+            </svg>
+          </button>
+
+          <!-- Notification Icon -->
+          <div class="icon-button-wrapper">
+            <button class="icon-button" aria-label="Notificações" aria-haspopup="true">
+              <svg class="icon-button__icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                <desc>Ícone de notificações</desc>
+                <path d="M3 2h18v15H3z"/>
+                <line x1="10.27" y1="21" x2="13.73" y2="21"/>
+              </svg>
+              <span class="notification-badge" aria-label="1 notificação não lida"></span>
+            </button>
+          </div>
+
+          <!-- User Profile -->
+          <div class="user-profile">
+            <img 
+              class="user-profile__avatar" 
+              src="https://placehold.co/42x41" 
+              alt="Avatar de Iuri Silva"
+              width="42"
+              height="41">
+            <div class="user-profile__info">
+              <span class="user-profile__name">Iuri Silva</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Sections -->
+      <div class="content">
+        <!-- Charts Section -->
+        <section class="section" aria-labelledby="charts-title">
+          <div class="cards-container">
+            <!-- Revenue Chart Card -->
+            <article class="card">
+              <h2 id="charts-title" class="card__title">Gráfico de receitas</h2>
+              <figure class="chart">
+                <figcaption class="sr-only">Gráfico de barras mostrando receitas de fevereiro a outubro</figcaption>
+                <div class="chart__content">
+                  <!-- Chart Axis Y -->
+                  <div class="chart__axis-y">
+                    <span class="chart__axis-label">2000</span>
+                    <span class="chart__axis-label">1000</span>
+                    <span class="chart__axis-label">500</span>
+                    <span class="chart__axis-label">250</span>
+                    <span class="chart__axis-label">0</span>
+                  </div>
+
+                  <!-- Chart Bars -->
+                  <div class="chart__bars" role="presentation">
+                    <div class="chart__bar-group">
+                      <div class="chart__bar" style="height: 50px;" data-month="Fevereiro" data-value="500"></div>
+                      <span class="chart__label">Fev</span>
+                    </div>
+                    <div class="chart__bar-group">
+                      <div class="chart__bar" style="height: 88px;" data-month="Março" data-value="880"></div>
+                      <span class="chart__label">Mar</span>
+                    </div>
+                    <div class="chart__bar-group">
+                      <div class="chart__bar" style="height: 147px;" data-month="Abril" data-value="1470"></div>
+                      <span class="chart__label">Abr</span>
+                    </div>
+                    <div class="chart__bar-group">
+                      <div class="chart__bar" style="height: 117px;" data-month="Maio" data-value="1170"></div>
+                      <span class="chart__label">Mai</span>
+                    </div>
+                    <div class="chart__bar-group">
+                      <div class="chart__bar" style="height: 169px;" data-month="Junho" data-value="1690"></div>
+                      <span class="chart__label">Jun</span>
+                    </div>
+                    <div class="chart__bar-group">
+                      <div class="chart__bar" style="height: 193px;" data-month="Julho" data-value="1930"></div>
+                      <span class="chart__label">Jul</span>
+                    </div>
+                    <div class="chart__bar-group">
+                      <div class="chart__bar" style="height: 88px;" data-month="Agosto" data-value="880"></div>
+                      <span class="chart__label">Ago</span>
+                    </div>
+                    <div class="chart__bar-group">
+                      <div class="chart__bar" style="height: 117px;" data-month="Setembro" data-value="1170"></div>
+                      <span class="chart__label">Set</span>
+                    </div>
+                    <div class="chart__bar-group">
+                      <div class="chart__bar chart__bar--highlighted" style="height: 148px;" data-month="Outubro" data-value="1480"></div>
+                      <span class="chart__label">Out</span>
+                    </div>
+                  </div>
+                </div>
+              </figure>
+            </article>
+
+            <!-- Transactions History Card -->
+            <article class="card">
+              <h2 class="card__title">Histórico de transações</h2>
+              <ul class="transactions-list">
+                <li class="transaction-item">
+                  <time class="transaction-item__date" datetime="2023-11-14">Ontem</time>
+                  <span class="transaction-item__value transaction-item__value--negative">R$ -540,32</span>
+                </li>
+                <li class="transaction-item">
+                  <time class="transaction-item__date" datetime="2023-11-09">Quinta-Feira</time>
+                  <span class="transaction-item__value transaction-item__value--negative">R$ -273,90</span>
+                </li>
+                <li class="transaction-item">
+                  <time class="transaction-item__date" datetime="2023-11-06">Segunda-Feira</time>
+                  <span class="transaction-item__value transaction-item__value--negative">R$ -1.456,20</span>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="section" aria-labelledby="stats-title">
+          <div class="stats-container">
+            <!-- Total Sales Stat -->
+            <article class="stat-card">
+              <div class="stat-card__content">
+                <h3 id="stats-title" class="stat-card__label">Total de vendas</h3>
+                <p class="stat-card__value">R$ 3.265,21</p>
+              </div>
+              <div class="stat-badge stat-badge--positive">
+                <span class="stat-badge__icon" aria-hidden="true">📈</span>
+                <span class="stat-badge__text">+ 11%</span>
+              </div>
+            </article>
+
+            <!-- Net Total Stat -->
+            <article class="stat-card">
+              <div class="stat-card__content">
+                <h3 class="stat-card__label">Total líquido</h3>
+                <p class="stat-card__value">R$ 2.825,58</p>
+              </div>
+              <div class="stat-badge stat-badge--positive">
+                <span class="stat-badge__icon" aria-hidden="true">📈</span>
+                <span class="stat-badge__text">+ 15%</span>
+              </div>
+            </article>
+
+            <!-- Cancelled Purchases Stat -->
+            <article class="stat-card">
+              <div class="stat-card__content">
+                <h3 class="stat-card__label">Compras canceladas</h3>
+                <p class="stat-card__value">R$ 130,00</p>
+              </div>
+              <div class="stat-badge stat-badge--negative">
+                <span class="stat-badge__icon" aria-hidden="true">📉</span>
+                <span class="stat-badge__text">-80%</span>
+              </div>
+            </article>
+
+            <!-- Refunds Stat -->
+            <article class="stat-card">
+              <div class="stat-card__content">
+                <h3 class="stat-card__label">Reembolsos</h3>
+                <p class="stat-card__value">R$ 345,00</p>
+              </div>
+              <div class="stat-badge stat-badge--negative">
+                <span class="stat-badge__icon" aria-hidden="true">📉</span>
+                <span class="stat-badge__text">-78%</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Buyers History Table Section -->
+        <section class="section" aria-labelledby="table-title">
+          <article class="table-card">
+            <h2 id="table-title" class="table-card__title">Histórico de compradores</h2>
+            
+            <div class="table-wrapper">
+              <table class="table" role="table">
+                <thead class="table__head">
+                  <tr class="table__row">
+                    <th class="table__header" scope="col">ID</th>
+                    <th class="table__header" scope="col">Data</th>
+                    <th class="table__header" scope="col">Nome</th>
+                    <th class="table__header" scope="col">Localização</th>
+                    <th class="table__header" scope="col">Valor</th>
+                    <th class="table__header" scope="col">Situação</th>
+                  </tr>
+                </thead>
+                <tbody class="table__body">
+                  <!-- Row 1 -->
+                  <tr class="table__row">
+                    <td class="table__cell" data-label="ID">#12345</td>
+                    <td class="table__cell" data-label="Data"><time datetime="2023-08-02">02/08/2023</time></td>
+                    <td class="table__cell" data-label="Nome">Roberto Santos</td>
+                    <td class="table__cell" data-label="Localização">Rio Grande do Sul</td>
+                    <td class="table__cell" data-label="Valor">R$ 15,00</td>
+                    <td class="table__cell" data-label="Situação">
+                      <span class="status-badge status-badge--approved">
+                        <span class="status-badge__dot" aria-hidden="true"></span>
+                        Aprovado
+                      </span>
+                    </td>
+                  </tr>
+
+                  <!-- Row 2 -->
+                  <tr class="table__row">
+                    <td class="table__cell" data-label="ID">#67890</td>
+                    <td class="table__cell" data-label="Data"><time datetime="2023-08-03">03/08/2023</time></td>
+                    <td class="table__cell" data-label="Nome">Beatriz Rodrigues</td>
+                    <td class="table__cell" data-label="Localização">Salvador</td>
+                    <td class="table__cell" data-label="Valor">R$ 15,00</td>
+                    <td class="table__cell" data-label="Situação">
+                      <span class="status-badge status-badge--pending">
+                        <span class="status-badge__dot" aria-hidden="true"></span>
+                        Em análise
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="PJBruno.js" defer></script>
+</body>
+</html>
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-content">
+        <span class="logo-letter">e</span><span class="logo-text">Front</span>
+      </div>
+    </div>
+    <div class="sidebar-menu">
+      <div class="menu-section">
+        <div class="menu-item menu-item-active">
+          <div class="menu-item-icon">
+            <div style="width: 7px; height: 7px; left: 14px; top: 14px; position: absolute; outline: 2px #9E6EFE solid; outline-offset: -1px"></div>
+            <div style="width: 7px; height: 7px; left: 3px; top: 14px; position: absolute; outline: 2px #9E6EFE solid; outline-offset: -1px"></div>
+            <div style="width: 7px; height: 7px; left: 14px; top: 3px; position: absolute; outline: 2px #9E6EFE solid; outline-offset: -1px"></div>
+            <div style="width: 7px; height: 7px; left: 3px; top: 3px; position: absolute; outline: 2px #9E6EFE solid; outline-offset: -1px"></div>
+          </div>
+          <div class="menu-item-text">Dashboard</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-icon">
+            <div style="width: 18px; height: 16px; left: 3px; top: 4px; position: absolute; outline: 2px #272727 solid; outline-offset: -1px"></div>
+          </div>
+          <div class="menu-item-text">Carteira</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-icon">
+            <div style="width: 2px; height: 2px; left: 19px; top: 20px; position: absolute; outline: 2px #272727 solid; outline-offset: -1px"></div>
+            <div style="width: 2px; height: 2px; left: 8px; top: 20px; position: absolute; outline: 2px #272727 solid; outline-offset: -1px"></div>
+            <div style="width: 22px; height: 15px; left: 1px; top: 1px; position: absolute; outline: 2px #272727 solid; outline-offset: -1px"></div>
+          </div>
+          <div class="menu-item-text">Transações</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-icon">
+            <div style="width: 3px; height: 5.87px; left: 20px; top: 15.13px; position: absolute; outline: 2px #272727 solid; outline-offset: -1px"></div>
+            <div style="width: 16px; height: 6px; left: 1px; top: 15px; position: absolute; outline: 2px #272727 solid; outline-offset: -1px"></div>
+            <div style="width: 3.01px; height: 7.75px; left: 16px; top: 3.13px; position: absolute; outline: 2px #272727 solid; outline-offset: -1px"></div>
+            <div style="width: 8px; height: 8px; left: 5px; top: 3px; position: absolute; outline: 2px #272727 solid; outline-offset: -1px"></div>
+          </div>
+          <div class="menu-item-text">Suporte</div>
+        </div>
+      </div>
+      <div class="menu-divider"></div>
+      <div class="menu-section">
+        <div class="menu-item">
+          <div class="menu-item-icon">
+            <div style="width: 6px; height: 6px; left: 9px; top: 9px; position: absolute; outline: 2px #272727 solid; outline-offset: -1px"></div>
+            <div style="width: 22px; height: 22px; left: 1px; top: 1px; position: absolute; outline: 2px #272727 solid; outline-offset: -1px"></div>
+          </div>
+          <div class="menu-item-text">Ajustes</div>
+        </div>
+        <div class="menu-item menu-item-logout">
+          <div class="menu-item-icon">
+            <div style="width: 18px; height: 15.36px; left: 3px; top: 6.64px; position: absolute; outline: 2px #F03D3D solid; outline-offset: -1px"></div>
+          </div>
+          <div class="menu-item-text">Desconectar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="header">
+      <div class="header-greeting">
+        <div class="greeting-title">Olá, Iuri</div>
+        <div class="greeting-subtitle">Aqui estão as informações sobre suas vendas.</div>
+      </div>
+      <div class="header-actions">
+        <div class="action-icon">
+          <div class="icon-24x24">
+            <div style="width: 16px; height: 16px; left: 3px; top: 3px; position: absolute; outline: 2px #272727 solid; outline-offset: -1px"></div>
+            <div style="width: 4.35px; height: 4.35px; left: 16.65px; top: 16.65px; position: absolute; outline: 2px #272727 solid; outline-offset: -1px"></div>
+          </div>
+        </div>
+        <div class="action-icon action-icon-notification">
+          <div class="icon-24x24">
+            <div style="width: 18px; height: 15px; left: 3px; top: 2px; position: absolute; outline: 2px #272727 solid; outline-offset: -1px"></div>
+            <div style="width: 3.46px; height: 1px; left: 10.27px; top: 21px; position: absolute; outline: 2px #272727 solid; outline-offset: -1px"></div>
+          </div>
+          <div class="notification-badge"></div>
+        </div>
+        <div class="user-profile">
+          <img class="user-avatar" src="https://placehold.co/42x41" alt="Avatar do usuário">
+          <div class="user-name">Iuri Silva</div>
+        </div>
+      </div>
+    </div>
+    <div class="cards-container">
+      <div class="card">
+        <div class="card-title">Gráfico de receitas</div>
+        <div class="chart-container">
+          <div class="chart-axis">
+            <div class="axis-label">2000</div>
+            <div class="axis-label">1000</div>
+            <div class="axis-label">500</div>
+            <div class="axis-label">250</div>
+            <div class="axis-label">0</div>
+          </div>
+          <div class="chart-bars">
+            <div class="chart-bar-group">
+              <div class="bar" style="height: 50px;"></div>
+              <div class="bar-label">Fev</div>
+            </div>
+            <div class="chart-bar-group">
+              <div class="bar" style="height: 88px;"></div>
+              <div class="bar-label">Mar</div>
+            </div>
+            <div class="chart-bar-group">
+              <div class="bar" style="height: 147px;"></div>
+              <div class="bar-label">Abr</div>
+            </div>
+            <div class="chart-bar-group">
+              <div class="bar" style="height: 117px;"></div>
+              <div class="bar-label">Mai</div>
+            </div>
+            <div class="chart-bar-group">
+              <div class="bar" style="height: 169px;"></div>
+              <div class="bar-label">Jun</div>
+            </div>
+            <div class="chart-bar-group">
+              <div class="bar" style="height: 193px;"></div>
+              <div class="bar-label">Jul</div>
+            </div>
+            <div class="chart-bar-group">
+              <div class="bar" style="height: 88px;"></div>
+              <div class="bar-label">Ago</div>
+            </div>
+            <div class="chart-bar-group">
+              <div class="bar" style="height: 117px;"></div>
+              <div class="bar-label">Set</div>
+            </div>
+            <div class="chart-bar-group">
+              <div class="bar bar-current" style="height: 148px;"></div>
+              <div class="bar-label">Out</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Histórico de transações</div>
+        <div class="transactions-list">
+          <div class="transaction-item">
+            <div class="transaction-date">Ontem</div>
+            <div class="transaction-value">R$ -540,32</div>
+          </div>
+          <div class="transaction-item">
+            <div class="transaction-date">Quinta-Feira</div>
+            <div class="transaction-value">R$ -273,90</div>
+          </div>
+          <div class="transaction-item">
+            <div class="transaction-date">Segunda-Feira</div>
+            <div class="transaction-value">R$ -1.456,20</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="stats-container">
+      <div class="stat-card">
+        <div class="stat-info">
+          <div class="stat-label">Total de vendas</div>
+          <div class="stat-value">R$ 3.265,21</div>
+        </div>
+        <div class="stat-badge stat-badge-positive">
+          <div class="stat-badge-icon">
+            <div style="width: 15px; height: 11.25px; left: 1.50px; top: 3px; position: absolute; background: #0BB07B"></div>
+          </div>
+          <div class="stat-badge-text">+ 11%</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-info">
+          <div class="stat-label">Total líquido</div>
+          <div class="stat-value">R$ 2.825,58</div>
+        </div>
+        <div class="stat-badge stat-badge-positive">
+          <div class="stat-badge-icon">
+            <div style="width: 15px; height: 11.25px; left: 1.50px; top: 3px; position: absolute; background: #0BB07B"></div>
+          </div>
+          <div class="stat-badge-text">+ 15%</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-info">
+          <div class="stat-label">Compras canceladas</div>
+          <div class="stat-value">R$ 130,00</div>
+        </div>
+        <div class="stat-badge stat-badge-negative">
+          <div class="stat-badge-icon">
+            <div style="width: 15px; height: 11.25px; left: 1.50px; top: 3.75px; position: absolute; background: #F03D3D"></div>
+          </div>
+          <div class="stat-badge-text">-80%</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-info">
+          <div class="stat-label">Reembolsos</div>
+          <div class="stat-value">R$ 345,00</div>
+        </div>
+        <div class="stat-badge stat-badge-negative">
+          <div class="stat-badge-icon">
+            <div style="width: 15px; height: 11.25px; left: 1.50px; top: 3.75px; position: absolute; background: #F03D3D"></div>
+          </div>
+          <div class="stat-badge-text">-78%</div>
+        </div>
+      </div>
+    </div>
+    <div class="table-container">
+      <div class="table-title">Histórico de compradores</div>
+      <div class="table-content">
+        <div class="table-header">
+          <div class="table-header-cell">ID</div>
+          <div class="table-header-cell">Data</div>
+          <div class="table-header-cell">Nome</div>
+          <div class="table-header-cell">Localização</div>
+          <div class="table-header-cell">Valor</div>
+          <div class="table-header-cell">Situação</div>
+        </div>
+        <div class="table-body">
+          <div class="table-row">
+            <div class="table-cell">#12345</div>
+            <div class="table-cell">02/08/2023</div>
+            <div class="table-cell">Roberto Santos</div>
+            <div class="table-cell">Rio Grande do Sul</div>
+            <div class="table-cell">R$ 15,00</div>
+            <div class="table-status">
+              <div class="status-badge status-badge-approved"></div>
+              <div class="status-text">Aprovado</div>
+            </div>
+          </div>
+          <div class="table-divider"></div>
+          <div class="table-row">
+            <div class="table-cell">#67890</div>
+            <div class="table-cell">03/08/2023</div>
+            <div class="table-cell">Beatriz Rodrigues</div>
+            <div class="table-cell">Salvador</div>
+            <div class="table-cell">R$ 15,00</div>
+            <div class="table-status">
+              <div class="status-badge status-badge-pending"></div>
+              <div class="status-text">Em análise</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
