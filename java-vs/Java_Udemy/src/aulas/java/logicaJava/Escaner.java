@@ -1,5 +1,5 @@
+package logicaJava;
 
-/* 
 import java.util.Scanner;
  
     public class Escaner {
@@ -21,4 +21,4 @@ import java.util.Scanner;
 
  }
 
-} */
+}
